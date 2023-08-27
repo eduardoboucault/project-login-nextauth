@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { signIn, signOut, useSession } from "next-auth/react"
 
 // É necessário informar que o componente é um componente cliente, pois ele não é um componente server-side.
