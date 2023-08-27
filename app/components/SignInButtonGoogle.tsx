@@ -3,7 +3,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 
 function SignInButtonGoogle() {
   return (
-    <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" onClick={() => signIn('google')}>Logar com Google</button>
+    <button type="button" className="bg-white hover:bg-white text-black-500 hover:text-gray-500 font-bold py-2 px-4 rounded cursor-pointer shadow-md" onClick={() => signIn('google')}>Logar com Google</button>
   )
 }
 
