@@ -3,6 +3,9 @@ import FacebookProvider from "next-auth/providers/facebook";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { connectMongoDB } from "@/app/lib/mongodb";
+import User from "@/app/models/user";
+import bcrypt from "bcryptjs";
 
 export const options: NextAuthOptions = {
   providers: [
@@ -26,20 +29,42 @@ export const options: NextAuthOptions = {
         password: { label: "Senha", type: "password" },
       },
       async authorize(credentials) {
-          // Aplicar meu banco de dados
-        const user = {
-          id: "30",
-          name: "Eduardo",
-          password: "dudu123"
+
+        // Aplicar meu banco de dados
+        const { email, password } = credentials as {
+          email: string;
+          password: string;
         }
-        
-        if ( credentials?.username === user?.name && credentials?.password === user?.password ) {
+
+        try {
+
+          await connectMongoDB();
+
+          const user = await User.findOne({ email });
+
+          if (!user) {
+            return null;
+          }
+
+          const passwordMatch = await bcrypt.compare(password, user.password);
+
+          if (!passwordMatch) {
+            return null
+          }
+
           return user;
-        } else {
-          return null;
+        } catch (error) {
+          console.log('Error:', error);
         }
-      }
-    })
+
+      },
+    }),
   ],
-  //Criar pages personalizadas
+  session: {
+    strategy: "jwt",
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: '/'
+  },
 };
