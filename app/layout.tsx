@@ -1,9 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import SignInButtonFacebook from "./components/SignInButtonFacebook";
-import SignInButtonGitHub from "./components/SignInButtonGitHub";
-import SignInButtonGoogle from "./components/SignInButtonGoogle";
+import AuthProvider from "./context/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,23 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header>
-          <p>Header</p>
-        </header>
-        <main>
-          <div className="container mx-auto px-4 py-16 display flex wrap">
-            <ul>
-            <SignInButtonFacebook/>
-            <SignInButtonGitHub/>
-            <SignInButtonGoogle/>
-            </ul>
-
-          </div>
-        </main>
-        <footer>
-          <p>Footer</p>
-        </footer>
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
