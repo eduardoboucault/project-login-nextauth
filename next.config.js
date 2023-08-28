@@ -12,8 +12,9 @@ const nextConfig = {
                 hostname: 'avatars.githubusercontent.com',
                 port: '',
                 pathname: '/u/**'
-            }
-        ]
+            },
+        ],
+        domains: ['lh3.googleusercontent.com', 'picsum.photos', 'platform-lookaside.fbsbx.com']
     }
 }
 
