@@ -35,7 +35,7 @@ function LoginForm() {
       });
 
       if (res?.error) {
-        setError(res.error);
+        setError("Usuário ou senha inválidos!");
         return;
       }
       // BIZARRO! Navegação de página usando o router do useRouter com método de array com o argumento do nome da página.
@@ -48,7 +48,18 @@ function LoginForm() {
   return (
     <div className="grid place-items-center h-screen">
       <div className="shadow-lg p-5 rounded-lg border-t-4 border-blue-500">
-        <h1 className="text-xl font-bold my-4">Página de login</h1>
+        <h1 className="text-xl font-bold mb-4 text-center">Página de login</h1>
+
+        <div className="flex flex-col gap-4">
+          <SignInButtonFacebook />
+          <SignInButtonGitHub />
+          <SignInButtonGoogle />
+        </div>
+
+        <span className="grid place-items-center text-sm mt-5 text-gray-500 mt-2 mb-4">
+          Ou
+          <hr className="w-full mt-2" />
+        </span>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
@@ -75,15 +86,6 @@ function LoginForm() {
             Não tem uma conta? <span className="underline">Registre-se</span>
           </Link>
         </form>
-
-        <span className="grid place-items-center text-sm mt-5">Ou</span>
-
-        <div className="flex flex-col gap-4">
-          <hr className="w-full" />
-          <SignInButtonFacebook />
-          <SignInButtonGitHub />
-          <SignInButtonGoogle />
-        </div>
       </div>
     </div>
   );
