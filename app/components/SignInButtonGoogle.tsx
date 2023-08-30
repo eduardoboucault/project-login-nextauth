@@ -1,12 +1,8 @@
 "use client";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
-import { useSession } from "next-auth/react";
 
 function SignInButtonGoogle() {
-  const { data: session } = useSession();
-
-  const buttonText = session ? "Continuar com Google" : "Logar com Google";
 
   return (
     <button
@@ -17,7 +13,7 @@ function SignInButtonGoogle() {
       <div className="mr-2">
         <FcGoogle size={24} />
       </div>
-      <div>{buttonText}</div>
+      <div>Continuar com Google</div>
     </button>
   );
 }

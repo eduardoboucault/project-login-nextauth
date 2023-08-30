@@ -1,9 +1,10 @@
 "use client";
 // O Link é importado do next/link, que por sua vez serve como um referenciador para outros componentes. Se comporta como o antigo useNavigate(), mas com mais funcionalidades.
-import Link from "next/link";
+
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import SignInButtonFacebook from "./SignInButtonFacebook";
 import SignInButtonGitHub from "./SignInButtonGitHub";
 import SignInButtonGoogle from "./SignInButtonGoogle";
@@ -48,9 +49,9 @@ function LoginForm() {
   return (
     <div className="grid place-items-center h-screen">
       <div className="shadow-lg p-5 rounded-lg border-t-4 border-blue-500">
-        <h1 className="text-xl font-bold mb-4 text-center">Página de login</h1>
+        <h1 className="text-xl font-bold mb-8 text-center">Página de login</h1>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-5">
           <SignInButtonFacebook />
           <SignInButtonGitHub />
           <SignInButtonGoogle />
@@ -58,7 +59,7 @@ function LoginForm() {
 
         <span className="grid place-items-center text-sm mt-5 text-gray-500 mt-2 mb-4">
           Ou
-          <hr className="w-full mt-2" />
+          <hr className="w-full mt-4" />
         </span>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
