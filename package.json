@@ -1,6 +1,6 @@
 {
   "name": "nextjs",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "Next.js example starter project with TypeScript, React, Next.js, Tailwind CSS, and ESLint.This project aims to create an app with NextAuth.js to enable login authorization through Facebook, Google, and GitHub.",
   "private": true,
   "scripts": {

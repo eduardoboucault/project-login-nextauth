@@ -78,7 +78,7 @@ export const options: NextAuthOptions = {
           // Se não existir, criamos um novo
           if (!userExist) {
             // Indicamos o tipo de dado que será enviado ao banco de dados, qual método, headers e body.
-            const res = await fetch(`http://localhost:3000/api/userGoogle`, {
+            const res = await fetch(`https://project-login-nextauth.vercel.app/api/userGoogle`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ export const options: NextAuthOptions = {
           // Se não existir, criamos um novo
           if (!userExist) {
             // Indicamos o tipo de dado que será enviado ao banco de dados, qual método, headers e body.
-            const res = await fetch(`http://localhost:3000/api/userGithub`, {
+            const res = await fetch(`https://project-login-nextauth.vercel.app/api/userGithub`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -142,7 +142,7 @@ export const options: NextAuthOptions = {
           // Se não existir, criamos um novo
           if (!userExist) {
             // Indicamos o tipo de dado que será enviado ao banco de dados, qual método, headers e body.
-            const res = await fetch(`http://localhost:3000/api/userFacebook`, {
+            const res = await fetch(`https://project-login-nextauth.vercel.app/api/userFacebook`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
