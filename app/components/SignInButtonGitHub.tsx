@@ -1,12 +1,9 @@
 "use client";
 import { signIn } from "next-auth/react";
 import { BsGithub } from "react-icons/bs";
-import { useSession } from "next-auth/react";
 
 function SignInButtonGitHub() {
-  const { data: session } = useSession();
 
-  const buttonText = session ? "Continuar com GitHub" : "Logar com GitHub";
 
   return (
     <button
@@ -17,7 +14,7 @@ function SignInButtonGitHub() {
       <div className="mr-2">
         <BsGithub size={22} />
       </div>
-      <div>{buttonText}</div>
+      <div>Continuar com GitHub</div>
     </button>
   );
 }
